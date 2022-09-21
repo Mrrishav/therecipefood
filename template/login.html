@@ -1,0 +1,31 @@
+{%extends 'base.html' %}
+{%block title%} Registeration {%endblock%}
+{% block content %}
+    <div class="container p-5" style="background-color:black;color:white;margin-top:9rem;">
+        <form action="{% url 'login' %}" method="post" style="padding:0px 90px 0px 90px;">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                     <label>User name</label>
+                     <input type="text" class="form-control"  placeholder="User name" name="Username">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Password</label>
+                    <input type="Password" class="form-control" placeholder="password" name="password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+    </div>
+<div class="container">
+<!--    <div class="alert alert-warning" role="alert"></div>-->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+            <h2>{{message}}</h2>
+        {% endfor %}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</div>
+{% endblock %}
