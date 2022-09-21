@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recipe',
     'account',
-    'whitenoise.runserver_nostatic','django.contrib.staticfiles',
+    'django.contrib.',
 ]
 
 MIDDLEWARE = [
