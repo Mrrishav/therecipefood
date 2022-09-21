@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^zufzz*zjji@=3dgi*s+29&kllv)n=4lvf&n-zp$s$20#q^o%o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','thefoodrecipe.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','therecipefood.herokuapp.com']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipe',
-    'account'
+    'account',
+    'whitenoise.runserver_nostatic','django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
@@ -133,3 +135,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
