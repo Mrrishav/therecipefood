@@ -28,15 +28,7 @@ def search(request):
 def post(request,id):
     item = recipe.objects.get(id=id)
     return render(request,'post.html',{'item':item})
-#
-# def create_item(request):
-#     form = ItemDetail(request.POST or None)
-#     print("nicha")
-#
-#     if form.is_valid():
-#         form.save()
-#         return redirect('/')
-#     return render(request,"item-add.html",{'form':form})
+
 def create_item(request):
     upload = ItemDetail()
     if request.method == 'POST':
@@ -55,10 +47,10 @@ def about(request):
 def update(request, id):
     id = int(id)
     try:
-        book_sel = recipe.objects.get(id = id)
+        recipe_sel = recipe.objects.get(id = id)
     except recipe.DoesNotExist:
         return redirect('/')
-    form = ItemDetail(request.POST or None, instance = book_sel)
+    form = ItemDetail(request.POST or None, instance = recipe_sel)
     if form.is_valid():
        form.save()
        return redirect('/')
